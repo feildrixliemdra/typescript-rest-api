@@ -1,5 +1,8 @@
 import express from "express"
-import { createUserHandler } from "../controller/user.controller"
+import {
+  createUserHandler,
+  getUsersHandler,
+} from "../controller/user.controller"
 import validate from "../middleware/validateParam"
 import { createUserSchema } from "../schema/user.schema"
 
@@ -10,5 +13,6 @@ router.get("/api/user", (req, res) => {
 })
 
 router.post("/api/users", validate(createUserSchema), createUserHandler)
+router.get("/api/users", getUsersHandler)
 
 export default router
