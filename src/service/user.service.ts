@@ -20,7 +20,7 @@ export async function createUser(
 export async function getUsers() {
   try {
     const user = await UserModel.find()
-    const result = []
+    const result = <any>[]
     user.forEach((e) => {
       const obj = omit(e.toJSON(), [
         "password",
